@@ -113,16 +113,13 @@ function modifyStrings(strings, modify) {
  */                         
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    //Create output boolean
-    let boolean = true
-    //iterate through strings array
-   for (let i = 0; i < strings.length; i++) {
-       //if iteration of strings does not pass test then set boolean to false
-       if (strings[i] !== test) {
-           boolean = false
-       }
-       //return boolean
-   } return boolean
+    let boolean = false
+  for (let i = 0; i < strings.length; i++) {
+      if (strings[i] == test) {
+          boolean = true
+      }
+  }
+  return boolean
     // YOUR CODE ABOVE HERE //
 }
 
