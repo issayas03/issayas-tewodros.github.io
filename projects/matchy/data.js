@@ -12,11 +12,27 @@
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-
+//Create object variable 
+var animal = {};
+//Create property for animal species and assign it a value
+animal.species = 'Lion';
+//Create property for animal name and assign it a value
+animal['name'] = 'Simba';
+//Create property animal sounds and assign it a value
+animal.noises = [];
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+var noises = []
+//push string into array
+noises[0] = 'Roar'
+//Push value into noises array
+noises.push('Woof')
+//Add value to beginning of noises array
+noises.unshift('Meow');
+//Add value to end of noises array
+noises[noises.length] = 'Roar'
 
 
 
@@ -24,15 +40,18 @@
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//Use bracket notation add to noises
 
-
+animal.noises = noises;
+animal['noises'].push('Bark')
+console.log(animal)
 /* *******************************************************************
  * Step 4 - Review
  *
  * 1. What are the different ways you can access properties on objects?
- *
+ * - Dot, Bracket Notation
  * 2. What are the different ways of accessing elements on arrays?
- *
+ * - Bracket Notation,
  * *******************************************************************
  */
 
@@ -49,7 +68,23 @@
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//Create empty array to store animal object values
+var animals = [];
+//Push animal object into Array
+animalsArr.push(animal)
+//Log Array
+console.log(animals);
+//Create duck object
+var duck = { species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] }
+//Push Duck Value into animalsArray
+animals.push(duck)
 
+//Create two more animal Objects
+
+var tiger = {species: 'tiger', name: 'Tigger', noises: ['Roar', 'Meow', 'Purr']}
+var fish = {species: 'fish', name: 'Nemo', noises: ['Aahh', 'Woof']}
+//push animals into object array
+animals.push(tiger, fish)
 
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
