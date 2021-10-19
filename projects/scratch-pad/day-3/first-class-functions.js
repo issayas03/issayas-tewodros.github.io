@@ -113,13 +113,12 @@ function modifyStrings(strings, modify) {
  */                         
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    let boolean = false
-  for (let i = 0; i < strings.length; i++) {
-      if (strings[i] == test) {
-          boolean = true
-      }
-  }
-  return boolean
+    goodArr = []
+    let boolean = false;
+    for (let i = 0; i < strings.length; i++) {
+        if(strings[i](test)){
+        }
+    } return true
     // YOUR CODE ABOVE HERE //
 }
 
