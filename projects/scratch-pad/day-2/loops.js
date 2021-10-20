@@ -113,9 +113,9 @@ function getObjectLength(object) {
   //Create an output array for the object's keys
   var lengthArray = [];
   //Create a for..in loop pushing the object's keys into the array
-  for (length in object){
+  for (var key in object){
     //push the key into array
-    lengthArray.push(length);
+    lengthArray.push(key);
   }
   //Check length property of the array
 return lengthArray.length;

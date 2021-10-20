@@ -9,10 +9,19 @@
  * and read every instruction carefully.
  */
 
+const { isNull } = require("lodash");
+
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Create function with 2 parameters, 1 an array and the other a string... The function will return 
+function search(array, string) {
+ for (var i = 0; i < array.length; i++) {
+     if (array[i].name === string) {
+         return array[i]
+     } else {return null} 
+ }
+}
 
 
 //////////////////////////////////////////////////////////////////////

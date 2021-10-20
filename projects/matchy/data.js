@@ -8,6 +8,7 @@
  * and read every instruction carefully.
  */
 
+
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -71,7 +72,7 @@ console.log(animal)
 //Create empty array to store animal object values
 var animals = [];
 //Push animal object into Array
-animalsArr.push(animal)
+animals.push(animal)
 //Log Array
 console.log(animals);
 //Create duck object
@@ -82,7 +83,7 @@ animals.push(duck)
 //Create two more animal Objects
 
 var tiger = {species: 'tiger', name: 'Tigger', noises: ['Roar', 'Meow', 'Purr']}
-var fish = {species: 'fish', name: 'Nemo', noises: ['Aahh', 'Woof']}
+var fish = {species: 'fish', name: 'Nemo', noises: ['Aahh', 'Awkward-Silence']}
 //push animals into object array
 animals.push(tiger, fish)
 
@@ -95,14 +96,16 @@ var friends = [];
 //Simple list of friends object
 
 //Write a function called `getRandom` that takes our `animals` array and returns  a random `index` of the input array, using `Math.random`
-
-function getRandom(animals, min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+function getRandom(array) {
+  var min = array[0]
+  var max = array.length 
+  return Math.floor(Math.random() * array.length) 
+  //The maximum is exclusive and the minimum is inclusive
 }
-
-animals[getRandom(0, animals.length - 1)]
+//Push the name of a RANDOM animal into the friends array
+friends.push(animals[getRandom(animals)].name)
+//Finally give a RANDOM animal a friends key with the value of the previous friends array
+animals[getRandom(animals)].friends = friends
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
