@@ -70,11 +70,11 @@ function capitalizeAllWords(string) {
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function welcomeMessage(object) {
-    var firstLetter = object.name[0];
-    var firstCap = firstLetter.toUpperCase();
-    var restWord = object.name.slice(1)
-    var capName = firstCap += restWord
-    return `Welcome ${capName}!`
+    // var firstLetter = object.name[0];
+    // var firstCap = firstLetter.toUpperCase();
+    // var restWord = object.name.slice(1)
+    // var capName = firstCap += restWord
+    return `Welcome ${capitalizeWord(object.name)}!`
       }
 
 //////////////////////////////////////////////////////////////////////
@@ -92,11 +92,11 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-    if(Array.isArray(object.noises)) {
+    if(object.noises && object['noises'].length !== 0) {
 
-        var arr = object.noises.join(' ')
-        return arr
-    } else {'there are no noises'}
+        var joinedArray = object.noises.join(' ')
+        return joinedArray
+    } else {return 'there are no noises'}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -104,15 +104,24 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
+var flagBool = false
+strSpl = string.split(' ')
 
+for (var i = 0; i < strSpl.length; i++) {
+    if (strSpl[i] === word) {
+        flagBool = true
+    }
 }
+return flagBool
+} 
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+object.friends.push(name)
+return object
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -120,6 +129,20 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
+var flagBool = false;
+var friendsArray = object.friends
+
+if (object.friends === undefined){
+    return flagBool
+}
+
+    for (var i = 0; i < friendsArray.length; i++) {
+        if (friendsArray[i] === name) {
+            flagBool = true;
+        }
+    }
+
+    return flagBool
 
 }
 
@@ -128,6 +151,9 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+    for (var i = 0; i < array.length; i++) {
+        if ()
+    }
 
 }
 
