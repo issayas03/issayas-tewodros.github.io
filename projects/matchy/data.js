@@ -97,8 +97,6 @@ var friends = [];
 
 //Write a function called `getRandom` that takes our `animals` array and returns  a random `index` of the input array, using `Math.random`
 function getRandom(array) {
-  var min = array[0]
-  var max = array.length 
   return Math.floor(Math.random() * array.length) 
   //The maximum is exclusive and the minimum is inclusive
 }
