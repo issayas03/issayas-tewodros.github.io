@@ -53,23 +53,37 @@ function capitalizeWord(string) {
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-code ~/.bashrc
-
+function capitalizeAllWords(string) {
+    
+   var stringArr = string.split(' ');
+   var outputArr = [];
+   for (var i = 0; i < stringArr.length; i++) { 
+       var stringFirstLetter = stringArr[i][0];
+       var firstCap = stringFirstLetter.toUpperCase();
+       var half = stringArr[i].slice(1);
+       outputArr.push(firstCap += half)
+   }
+   return outputArr.join(' ')
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
 function welcomeMessage(object) {
-
-}
+    var firstLetter = object.name[0];
+    var firstCap = firstLetter.toUpperCase();
+    var restWord = object.name.slice(1)
+    var capName = firstCap += restWord
+    return `Welcome ${capName}!`
+      }
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+
+   return `${capitalizeWord(object.name)} is a ${capitalizeWord(object.species)}`
 
 }
 
@@ -78,7 +92,11 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
+    if(Array.isArray(object.noises)) {
 
+        var arr = object.noises.join(' ')
+        return arr
+    } else {'there are no noises'}
 }
 
 //////////////////////////////////////////////////////////////////////
