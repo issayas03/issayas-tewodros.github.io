@@ -150,27 +150,56 @@ if (object.friends === undefined){
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function nonFriends(name, array) {
-    for (var i = 0; i < array.length; i++) {
-        if ()
+function nonFriends(name, arr){
+    var listNames = [];
+    var result = [];
+
+    for(var i = 0; i < arr.length; i++){
+        if(name === arr[i].name){
+            current = arr[i];
+        } else{
+            listNames.push(arr[i].name);
+        }
     }
 
-}
+    for(var i=0; i< listNames.length; i++){
+        if(current.friends.indexOf(listNames[i]) == -1){
+            result.push(listNames[i]);
+        }
+    }
 
+    return result;
+
+}
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function updateObject(object, key, value) {
-
+function updateObject(object, keys, value) {
+  for (var key in object) {
+    if (key === keys) {
+       object[key] = value
+    } else if (key !== keys) {
+       object[keys] = value
+    }
+  }
+  return object
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    for (var keys in object) {
+        for (var i = 0; i < array.length; i++) {
+            if (keys === array[i]) {
+                delete object[keys]
+            }
+        }
+    }
+    return object
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -178,7 +207,14 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+for (var i = 0; i < array.length; i++) {
+    for (var j = array.length; j > 0; j--) {
+        if (array[i] === array[j]) {
+           let x = array.splice(j, 1)
+           return x
+        } else {return array}
+    }
+}
 }
 
 //////////////////////////////////////////////////////////////////////
