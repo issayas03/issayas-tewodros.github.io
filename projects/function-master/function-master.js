@@ -207,14 +207,8 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-for (var i = 0; i < array.length; i++) {
-    for (var j = array.length; j > 0; j--) {
-        if (array[i] === array[j]) {
-           let x = array.splice(j, 1)
-           return x
-        } else {return array}
-    }
-}
+   var uniqArr = [...new Set(array)];
+   return uniqArr
 }
 
 //////////////////////////////////////////////////////////////////////
