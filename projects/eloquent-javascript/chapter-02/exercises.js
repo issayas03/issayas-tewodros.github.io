@@ -14,24 +14,39 @@ function triangles(num) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() {
-  // for (let i = 1; i <= 15; i++) {
-  //   let output = ''
-  //   if (i % 3 === 0 && i % 5 === 0) {
-  //     output += 'fizzbuzz'
-  //   }  else if (i % 3 === 0) {
-  //     output += 'fizz'
-  //   } else if (i % 5 === 0) {
-  //     output += 'buzz'
-  //   }
-  //   console.log(output || i)
+  for (let i = 1; i <= 15; i++) {
+    let output = ''
+    if (i % 3 === 0 && i % 5 === 0) {
+      output += 'fizzbuzz'
+    }  else if (i % 3 === 0) {
+      output += 'fizz'
+    } else if (i % 5 === 0) {
+      output += 'buzz'
+    }
+    console.log(output || i)
+}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
+function drawChessboard(num) {
 
+  let board = ''
+  let size = num
+  
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+      if ((i + j) % 2 === 0) {
+        board += " "
+      } else {
+        board += '#'
+      }
+    }
+    board += "\n"
+  }
+return board
 }
 
 ////////////////////////////////////////////////////////////////////////////////
