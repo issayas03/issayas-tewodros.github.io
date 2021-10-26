@@ -167,6 +167,19 @@ _.last = function (array, number) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function (array, value) {
+    
+for (let i = 0; i < array.length; i++) {
+    if (array[i] === value) {
+        return i
+    } 
+}
+return -1
+}
+
+
+
+
 
 /** _.contains
 * Arguments:
@@ -184,6 +197,14 @@ _.last = function (array, number) {
 */
 
 
+
+_.contains = function (array, value) {
+    for (let i = 0; i < array.length; i++) {
+     return array[i] === value ? true : false
+    }
+}
+
+
 /** _.each
 * Arguments:
 *   1) A collection
@@ -199,6 +220,12 @@ _.last = function (array, number) {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+
+
+_.each = function(collection, funkshin) {
+
+}
+
 
 
 /** _.unique
