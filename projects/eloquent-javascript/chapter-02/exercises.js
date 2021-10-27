@@ -31,7 +31,7 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function chexboard(number) {
+function drawChessboard(number) {
   let output = [];
   for (let i = 0; i < number; i++) {
     let row = '';
@@ -55,7 +55,7 @@ function chexboard(number) {
     }
     output.push(row)
   }
-  return output.join('\n')
+  return output.join('\n') + '\n'
 }
 
 ////////////////////////////////////////////////////////////////////////////////

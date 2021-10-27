@@ -278,16 +278,16 @@ _.unique = function(array) {
 
 
 
-_.filter = funciton(collection, action) {
-    let output = [];
-    //Call function on each elementin array
-    for (let i = 0; i < collection.length; i++) {
-        if (action(collection[i])) {
-            output.push(collection[i])
-        }
-    }
-    return output
-}
+// _.filter = function(collection, action) {
+//     let output = [];
+//     //Call function on each elementin array
+//     for (let i = 0; i < collection.length; i++) {
+//         if (action(collection[i])) {
+//             output.push(collection[i])
+//         }
+//     }
+//     return output
+// }
 
 
 
@@ -305,6 +305,18 @@ _.filter = funciton(collection, action) {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+//Create a funciton that takes a collection, and a function as arguments
+_.reject = function(collection, action) {
+    let output = []
+    if (Array.isArray(collection)) {
+        for (let i = 0; i < collection.length; i++) {
+            if (action(collection[i])) {
+                output.push(collection[i])
+            }
+        }
+    }
+    return output
+}
 
 /** _.partition
 * Arguments:
