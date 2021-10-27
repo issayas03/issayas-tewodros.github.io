@@ -31,22 +31,31 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard(num) {
-
-  let board = ''
-  let size = num
-  
-  for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++) {
-      if ((i + j) % 2 === 0) {
-        board += " "
-      } else {
-        board += '#'
+function chexboard(number) {
+  let output = [];
+  for (let i = 0; i < number; i++) {
+    let row = '';
+    if (i % 2 === 0) {
+      row = ' '
+      for (let j = 0; j < number; j++) {
+        if (j % 2 === 0) {
+          row += '#'
+        } else {
+          row += ' '
+        }
+      } 
+    } else {
+      for (let k = 0; k < number; k++) {
+        if (k % 2 === 0) {
+          row += '#'
+        } else {
+          row += ' '
+        }
       }
     }
-    board += "\n"
+    output.push(row)
   }
-return board
+  return output.join('\n')
 }
 
 ////////////////////////////////////////////////////////////////////////////////

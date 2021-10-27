@@ -199,9 +199,7 @@ return -1
 
 
 _.contains = function (array, value) {
-    for (let i = 0; i < array.length; i++) {
-     return array[i] === value ? true : false
-    }
+    return (array.indexOf(value) >= 0) ? true : false
 }
 
 
@@ -223,7 +221,16 @@ _.contains = function (array, value) {
 
 
 _.each = function(collection, funkshin) {
-
+//If collection is an array.. Call the function once on each element of the
+    if (Array.isArray(collection)){
+        for (let i  = 0; i < collection.length; i++) {
+            funkshin(collection[i], i, collection)
+        }
+    } else if (Array.isArray(collection) !== true) {
+            for (let key in collection) {
+                funkshin(collection[key], key, collection)
+            }
+    }
 }
 
 
@@ -237,6 +244,20 @@ _.each = function(collection, funkshin) {
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+
+
+
+
+_.unique = function(array) {
+    let output = [];
+    for (let i = 0; i < array.length; i++) {
+        if (_.indexOf(array, array[i]) === i) {
+            output.push(array[i])
+        }
+    }
+    return output
+}
+
 
 
 /** _.filter
@@ -254,6 +275,21 @@ _.each = function(collection, funkshin) {
 * Extra Credit:
 *   use _.each in your implementation
 */
+
+
+
+_.filter = funciton(collection, action) {
+    let output = [];
+    //Call function on each elementin array
+    for (let i = 0; i < collection.length; i++) {
+        if (action(collection[i])) {
+            output.push(collection[i])
+        }
+    }
+    return output
+}
+
+
 
 
 /** _.reject
