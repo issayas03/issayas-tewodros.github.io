@@ -278,16 +278,16 @@ _.unique = function(array) {
 
 
 
-// _.filter = function(collection, action) {
-//     let output = [];
-//     //Call function on each elementin array
-//     for (let i = 0; i < collection.length; i++) {
-//         if (action(collection[i])) {
-//             output.push(collection[i])
-//         }
-//     }
-//     return output
-// }
+_.filter = function(collection, action) {
+   let output = [];
+   for (let i = 0; i < collection.length; i++) {
+       if (action(collection)) {
+           output.push(collection[i])
+       }
+   }
+   return output
+}
+
 
 
 
@@ -310,7 +310,7 @@ _.reject = function(collection, action) {
     let output = []
     if (Array.isArray(collection)) {
         for (let i = 0; i < collection.length; i++) {
-            if (action(collection[i])) {
+            if (action(collection[i]) === false) {
                 output.push(collection[i])
             }
         }
