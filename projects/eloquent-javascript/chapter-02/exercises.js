@@ -36,8 +36,8 @@ function drawChessboard(number) {
   for (let i = 0; i < number; i++) {
     let row = '';
     if (i % 2 === 0) {
-      row += ' '
-      for (let j = 0; j < number; j++) {
+      row = ' '
+      for (let j = 1; j < number; j++) {
         if (j % 2 === 0) {
           row += ' '
         } else {
@@ -45,7 +45,7 @@ function drawChessboard(number) {
         }
       } 
     } else {
-      row += '#';
+      row = '#';
       for (let k = 1; k < number; k++) {
         if (k % 2 === 0) {
           row += '#'
@@ -57,7 +57,7 @@ function drawChessboard(number) {
     output.push(row)
   }
 
-  console.log(output.join('\n')) 
+  console.log(output.join('\n') + '\n') 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
