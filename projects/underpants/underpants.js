@@ -337,7 +337,20 @@ _.reject = function(collection, action) {
 }
 */
 
-
+_.partition = function(collection, action) {
+    let output = [];
+    let truthy = [];
+    let falsey = [];
+    for (let i = 0; i < collection.length; i++) {
+        if (action(collection[i], i, collection)){
+            truthy.push(collection[i])
+        } else if (action(collection[i], i, collection) === false) {
+            falsey.push(collection[i])
+        }
+    }
+    output = [truthy, falsey]
+    return output
+}
 
 
 
@@ -359,6 +372,26 @@ _.reject = function(collection, action) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, action) {
+    let output = [];
+    //Call function on each element in collection (if array) passing in e,i,a
+    if (Array.isArray(collection)) {
+        for (let i = 0; i < collection.length; i++) {
+            //Return true if any value passes test
+            if (action(collection[i], i, collection)) {
+                output.push(action(collection[i], i, collection))
+            }
+        }
+    } else if (_.typeOf(collection) === 'object') {
+        for (let key in collection) {
+            if (action(collection[key], key, collection)) {
+                output.push(action(collection[key], key, collection))
+            }
+        }
+    } 
+    return output
+}
+
 
 /** _.pluck
 * Arguments:
@@ -370,6 +403,18 @@ _.reject = function(collection, action) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+
+
+_.pluck = function (collection, property) {
+  return  _.map(collection, function(e) {if (e[property]) {
+      return e[property]
+  }} )
+
+}
+
+
+
 
 
 /** _.every
@@ -394,6 +439,38 @@ _.reject = function(collection, action) {
 */
 
 
+_.every = function(collection, action) {
+    let flagbool = true;
+
+    if (action === undefined) {
+        for (let i = 0; i < collection.length; i++) {
+            if (collection[i] === false) {
+                return false
+            } else if (collection[i] === true) {
+                return true
+            }
+        }
+    } 
+
+    if (Array.isArray(collection)) {
+        for (let i = 0; i < collection.length; i++) {
+            if (action(collection[i], i, collection) === false){
+                    flagbool = false
+            }
+        }
+    } else if (_.typeOf(collection) === 'object') {
+        for (let key in collection) {
+            if (action(collection[key], key, collection) === false) {
+                flagbool = false
+            }
+        }
+    }
+return flagbool
+}
+
+
+
+
 /** _.some
 * Arguments:
 *   1) A collection
@@ -415,6 +492,36 @@ _.reject = function(collection, action) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, action) {
+    let flagBool = false
+
+    if (action === undefined) {
+        for (let i = 0; i < collection.length; i++) {
+            if (collection[i] === false) {
+                return false
+            } else if (collection[i] === true) {
+                return true
+            }
+        }
+    } 
+        if (Array.isArray(collection)) {
+            for (let i = 0; i < collection.length; i++) {
+                if (action(collection[i], i, collection)) {
+                    return true
+                }
+            }
+        } else if (_.typeOf(collection) === 'object') {
+            for (let key in collection) {
+                if (action(collection[key], key, collection)){
+                    return true
+                }
+            }
+        }
+        return flagBool
+}
+
+
+
 
 /** _.reduce
 * Arguments:
@@ -434,6 +541,23 @@ _.reject = function(collection, action) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+
+_.reduce = function (array, action, seed) {
+    if (seed === undefined) {
+        seed = array[0]
+        for (let i = 1; i < array.length; i++) {
+            seed = action(seed, array[i], i)
+            
+        }
+    } else {
+        for (let i = 0; i < array.length; i++) {
+            seed = action(seed, array[i], i)
+        }
+    }
+    return seed
+}
+
+
 
 
 /** _.extend
