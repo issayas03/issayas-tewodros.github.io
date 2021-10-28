@@ -281,7 +281,7 @@ _.unique = function(array) {
 _.filter = function(collection, action) {
    let output = [];
    for (let i = 0; i < collection.length; i++) {
-       if (action(collection)) {
+       if (action(collection[i], i, collection)) {
            output.push(collection[i])
        }
    }
@@ -310,7 +310,7 @@ _.reject = function(collection, action) {
     let output = []
     if (Array.isArray(collection)) {
         for (let i = 0; i < collection.length; i++) {
-            if (action(collection[i]) === false) {
+            if (action(collection[i], i, collection) === false) {
                 output.push(collection[i])
             }
         }
@@ -336,6 +336,11 @@ _.reject = function(collection, action) {
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+
+
+
+
+
 
 
 /** _.map
